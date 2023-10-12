@@ -1,7 +1,5 @@
 import "./style.css";
 
-const radToDeg = (rad: number) => (rad * 180) / Math.PI;
-
 class App {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
@@ -51,8 +49,6 @@ class App {
     this.player.render();
   }
 }
-
-const WIND_ANGLE = Math.PI;
 
 class Player {
   ctx: CanvasRenderingContext2D;
@@ -126,12 +122,6 @@ class Player {
     this.ctx.restore();
 
     this.ctx.save();
-
-    // Compute the difference between wind and boat angle
-    const angle = Math.atan2(
-      Math.sin(WIND_ANGLE - this.angle),
-      Math.cos(WIND_ANGLE - this.angle)
-    );
 
     const halfPI = Math.PI / 2;
 
